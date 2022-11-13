@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thermocline calculator</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=default'></script>
+</head>
+<body>
+    <h1>Thermocline mass of Molten Salt calculator</h1>
+    <h2>Inside tank calculations</h2>
+    <div class="Inputdiv">
+        
+        <p2>&nbsp;</p2> 
+        <h3>Input values</h3>
+        <p2>&nbsp;</p2> 
+        <p>Diameter:</p>
+        <input type="text" name="diameter" id="diameter">
+        <lattext>[m]</lattext>
+        <p>Height bed:</p>
+        <input type="text" name="height" id="height">
+        <lattext>[m]</lattext>
+        <p>Height buffer top:</p>
+        <input type="text" name="heightbt" id="heightbt">
+        <lattext>[m]</lattext>
+        <p>Height buffer bottom:</p>
+        <input type="text" name="heightbb" id="heightbb">
+        <lattext>[m]</lattext>
+        <p>Void fraction:</p>
+        <input type="text" name="voidf" id="voidf">
+        <lattext>[-]</lattext>
+        <p>Porosity:</p>
+        <input type="text" name="porosity" id="porosity">
+        <lattext>[-]</lattext>
+
+        <p>Initial temperature:</p>
+        <input type="text" name="initialtemp" id="initialtemp">
+        <lattext>[ºC]</lattext>
+        <p>Molten salt:</p>
+        <form action="#">
+            <select name="moltensalt" id="moltensalt">
+                <option value="solarsalt">[1] Solar Salt</option>
+                <option value="hitecxl">[2] HitecXL</option>
+                <option value="yaramost1">[3] YaraMOST</option>
+                <option value="yaramost2">[4] YaraMOST fresh</option>
+                <option value="yaramost3">[5] YaraMOST aged</option>
+            </select>
+        </form>
+        <div class="Calculatediv">
+            <p2>&nbsp;</p2> 
+            <input type="button" onclick="calculate()" value="Calculate">
+            <p2>&nbsp;</p2> 
+        </div>
+    </div>
+    
+    <div class="Outputdiv">
+        <p2>&nbsp;</p2> 
+        <h3>Output values</h3>
+        <p2>&nbsp;</p2> 
+        <p>Volume bed:</p>
+        <input type="text" name="Volume" id="volume">
+        <lattext>[m3]</lattext>
+        <p>Volume buffer:</p>
+        <input type="text" name="Volumebuffer" id="volumebuffer">
+        <lattext>[m3]</lattext>
+        <p>Volume total:</p>
+        <input type="text" name="Volumetotal" id="volumetotal">
+        <lattext>[m3]</lattext>
+        <p>Volume bed molten salt:</p>
+        <input type="text" name="volumefluidbed" id="volumefluidbed">
+        <lattext>[m3]</lattext>
+        <p>Volume solid molten salt:</p>
+        <input type="text" name="volumefluidsolid" id="volumefluidsolid">
+        <lattext>[m3]</lattext>
+        <p>Volume total molten salt:</p>
+        <input type="text" name="volumefluid" id="volumefluid">
+        <lattext>[m3]</lattext>
+        <p>Volume solid:</p>
+        <input type="text" name="Volumesolid" id="volumesolid">
+        <lattext>[m3]</lattext>
+        <p>Density molten salt:</p>
+        <input type="text" name="density" id="density">
+        <lattext>[kg/m3]</lattext>
+        <p>Mass bed molten salt:</p>
+        <input type="text" name="mass" id="mass">
+        <lattext>[kg]</lattext>
+        <p>Mass solid molten salt:</p>
+        <input type="text" name="masssolid" id="masssolid">
+        <lattext>[kg]</lattext>
+        <p>Mass buffer molten salt:</p>
+        <input type="text" name="mass" id="massbuffer">
+        <lattext>[kg]</lattext>
+        <p>Total mass inside the tank molten salt:</p>
+        <input type="text" name="mass" id="masstotal">
+        <lattext>[kg]</lattext>
+    </div>
+
+    <h2>Outside tank calculations</h2>
+    <div class="OutsideTC">
+        <div class="inputoutside">
+            <p2>&nbsp;</p2> 
+            <h3>Input values</h3>
+            <p2>&nbsp;</p2> 
+            <p>Diameter tubes:</p>
+            <input type="text" name="diametertubes" id="diametertubes">
+            <lattext>[m]</lattext>
+            <p>Length tubes:</p>
+            <input type="text" name="lengthtubes" id="lengthtubes">
+            <lattext>[m]</lattext>
+             
+            <p>Diameter tubes eHX:</p>
+            <input type="text" name="diametertubeseHX" id="diametertubeseHX">
+            <lattext>[m]</lattext>
+            <p>Length tubes eHX:</p>
+            <input type="text" name="lengthtubeseHX" id="lengthtubeseHX">
+            <lattext>[m]</lattext>
+
+            <p>Diameter tubes cHX:</p>
+            <input type="text" name="diametertubescHX" id="diametertubescHX">
+            <lattext>[m]</lattext>
+            <p>Length tubes cHX:</p>
+            <input type="text" name="lengthtubescHX" id="lengthtubescHX">
+            <lattext>[m]</lattext>
+
+            <p>Length MLTST:</p>
+            <input type="text" name="lengthmlts" id="lengthmlts">
+            <lattext>[m]</lattext>
+            <p>Height MLTST:</p>
+            <input type="text" name="heightmlts" id="heightmlts">
+            <lattext>[m]</lattext>
+            <p>Width MLTST:</p>
+            <input type="text" name="widthmlts" id="widthmlts">
+            <lattext>[m]</lattext>
+            
+            <p>Mass pumps:</p>
+            <input type="text" name="masspumps" id="masspumps">
+            <lattext>[kg]</lattext>
+
+            <div class="calculatediv2">
+                <p2>&nbsp;</p2> 
+                <input type="button" onclick="calculate2()" value="Calculate">
+                <p2>&nbsp;</p2> 
+            </div>
+        </div>
+
+        <div class="outputoutside">
+            <p2>&nbsp;</p2> 
+            <h3>Output values</h3>
+            <p2>&nbsp;</p2> 
+            <p>Volume tubes:</p>
+            <input type="text" name="volumetubes" id="volumetubes">
+            <lattext>[m3]</lattext>
+            <p>Mass tubes:</p>
+            <input type="text" name="masstubes" id="masstubes">
+            <lattext>[kg]</lattext>
+            <p>Volume tubes eHX:</p>
+            <input type="text" name="volumetubeseHX" id="volumetubeseHX">
+            <lattext>[m3]</lattext>
+            <p>Mass tubes eHX:</p>
+            <input type="text" name="masstubeseHX" id="masstubeseHX">
+            <lattext>[kg]</lattext>
+            <p>Volume tubes cHX:</p>
+            <input type="text" name="volumetubescHX" id="volumetubescHX">
+            <lattext>[m3]</lattext>
+            <p>Mass tubes cHX:</p>
+            <input type="text" name="masstubescHX" id="masstubescHX">
+            <lattext>[kg]</lattext>
+
+            <p>Volume MLTST:</p>
+            <input type="text" name="volumemltst" id="volumemltst">
+            <lattext>[m3]</lattext>
+            <p>Mass MLTST:</p>
+            <input type="text" name="massmltst" id="massmltst">
+            <lattext>[kg]</lattext>
+            
+            <p>Total mass outside the tank of molten salt:</p>
+            <input type="text" name="masstotaloutside" id="masstotaloutside">
+            <lattext>[kg]</lattext>
+
+
+        </div>
+
+    </div>
+
+    <h2>Final mass calculation</h2>
+    <div class="TotalMass">
+        <div class="massinside">
+            <p>Total mass inside the tank molten salt:</p>
+            <input type="text" name="massnside" id="massnside">
+            <lattext>[kg]</lattext>
+        </div>
+        <div class="massoutside">
+            <p>Total mass outside the tank molten salt:</p>
+            <input type="text" name="massutside" id="massutside">
+            <lattext>[kg]</lattext>
+        </div>
+        <div class="masstotalfinal">
+            <p>Total mass needed: [kg]</p>
+            <input type="text" name="masstotafinal" id="masstotafinal">
+            
+        </div>
+        
+    </div>
+
+    <div class="details">
+        <h2>Model details</h2>
+        <h3>Inside tank</h3>
+        <p4>
+            The actual page wants to calculate the total molten salt needed in order to 
+            build an experimental unit. The input values must be filled or selected before pressing 
+            "Calculate" button. In the following picture the different inputs are specified:
+            <br>
+            <br>
+        </p4>
+        <div class="TCimage">
+            <img src="/images/TC.jpg" alt="Thermocline schematic" style="width:400px;">
+        </div>
+        <div class="textmodel">
+            <p4>
+                As we can see "D" refers to diameter, "hbed" refers to the height of the bed, 
+                "htop" referes to the height of the upper buffer zone and "hbot" refers ot the
+                height of the bottom buffer zone.
+    
+                Regarding the void fraction it is calculated as the volume of fluid relative
+                to total volume: $$\epsilon = \frac{V_f}{V_t}$$
+                
+               
+                Some molten salts can be choosen, each one is related to his reference paper,
+                the density value of each salt may follow the next expressions: <br>
+                $$\textit{[1] Solar Salt:} \quad \rho = 2090-0.636*T$$ 
+                $$\textit{[2] HitecXL:}\quad \rho = 2240-0.827*T$$ 
+                $$\textit{[3] Yaramost:}\quad \rho = 2240-0.727*T$$ 
+                $$\textit{[4] Yaramost fresh:}\quad \rho = 2187-0.6704*T$$ 
+                $$\textit{[5] Yaramost aged:}\quad \rho = 2180-0.6765*T$$ 
+                The volume is calculated as a cilinder and taking into account the void fraction
+                for the molten salt volume. The porosity is used to calculate the molten salt volume
+                inside the solid. <br>
+                $$V_{bed} = \frac{\pi * D * D }{4.0} * h_{bed}$$ 
+                $$V_{ms,buffer} = \frac{\pi * D * D }{4.0} * (h_{top} + h_{bot})$$ 
+                $$V_{ms,bed} = V_{bed} * \epsilon$$ 
+                $$V_{solid} = V_{bed} * (1-\epsilon)$$ 
+                $$V_{ms,solid} = V_{solid} * p ,\quad \textit{where}\,\, p \,\,\textit{refers to porosity}$$
+                And finally to calculate the mass is simply multiplying the volume by density 
+                and then adding all terms.
+                
+                $$M_{ms,total} = M_{ms,bed} + M_{ms,buffer} + M_{ms,solid} $$
+            </p4>
+        </div>
+        <h3>Outside tank</h3>
+        <div class="TCimageexp">
+            <img src="/images/TCexp.jpg" alt="Thermocline schematic experimental" style="width:600px;">
+        </div>
+        <div class="textmodeloutside">
+            <p4>
+                As for the calculations outside the tank, they will be done in a simpler way.
+                As we can see in the image below, we are interested in knowing how much salt there is
+                to be stored in the Melting and long-term storage tank (MLTST) unit,
+                to the pipes of the entire installation, to the pumps and to the two heat exchangers;
+                eHX and cHX. <br>
+                All the volume tubes are calculated as:
+                <br> $$V_{tube} = \frac{\pi*d*d}{4.0}*l ,\quad \textit{where}\,\, d,l \,\,\textit{refers to the tube dimensions}$$
+                And the mass is obtained multiplying this volume by density. Finally the total
+                mass needed is presented as the sum of the inside and outside needed mass of molten
+                salt. <br>
+            </p4>
+        </div>
+        <h4>CAUTION!</h4>
+        <p5>
+            If you change some input on the "inside tank calculations", in order to 
+            obtain a final mass updated, ¡you must click on calculate again! <br><br>
+        </p5>
+    </div>
+
+    <div class="References">
+        <h2>References</h2>
+        <p3>
+            <ul>
+                <li>[1] Alexander Bonk, Salvatore Sau, Nerea Uranga, Marta Hernaiz, and Thomas Bauer.
+                    Advanced heat transfer fluids for direct molten salt line-focusing csp plants.
+                    Progress in Energy and Combustion Science, 2018.
+                </li>
+                <li>[2] Alexis B Zavoiko. Solar power tower design basis document, revision 0, 7 2001.</li>
+                <li>[3] YARA. Yara MOST Patented Ternary Salt Mix (Calcium-Potassium-Sodium-Nitrare).</li>
+                <li>[4] YARA. Thermo-physical properties of Yara Molten Salt.</li>
+            </ul>
+        </p3>
+    </div>
+
+    <script>
+        function calculate(){
+            
+            //Physical properties
+            var d = document.getElementById("diameter").value;
+            var h = document.getElementById("height").value;
+            var voidf = document.getElementById("voidf").value;
+            var porosity = document.getElementById("porosity").value;
+            var vt = Math.PI*d*d/4.0*h;
+            var v = vt*voidf;
+            var vs = vt * (1-voidf);
+            var vsf = vs*porosity;
+            document.getElementById("volume").value = vt;
+            document.getElementById("volumefluidbed").value = v;
+            document.getElementById("volumesolid").value = vs;
+            document.getElementById("volumefluidbed").value = v;
+            document.getElementById("volumefluidsolid").value = vsf;
+            var hbt = document.getElementById("heightbt").value;
+            var hbb = document.getElementById("heightbb").value;
+            var vb = Math.PI*d*d/4.0*hbt + Math.PI*d*d/4.0*hbb;
+            document.getElementById("volumebuffer").value = vb;
+            document.getElementById("volumetotal").value = vb + vt;
+            document.getElementById("volumefluid").value = v + vb + vsf;
+
+            //Thermophysical properties
+            var T = document.getElementById("initialtemp").value;
+            var molten = document.getElementById("moltensalt").value;
+            var rho = 0.0;
+            if(molten == 'solarsalt') rho =  2090-0.636*T;
+            if(molten == 'hitecxl') rho = 2240-0.827*T;
+            if(molten == 'yaramost1') rho = 2240-0.727*T;
+            if(molten == 'yaramost2') rho = 2187-0.6704*T;
+            if(molten == 'yaramost3') rho = 2180-0.6765*T;
+            document.getElementById("density").value = rho;
+            document.getElementById("mass").value = rho*v;
+            document.getElementById("masssolid").value = rho*vsf;
+            document.getElementById("massbuffer").value = rho*(vb);
+            document.getElementById("masstotal").value = rho*(vb+v+vsf);
+
+            document.getElementById("massnside").value = Math.round(100*document.getElementById("masstotal").value)/100;
+        }
+
+        function calculate2(){
+            var rho = document.getElementById('density').value;
+
+            var dt = document.getElementById('diametertubes').value;
+            var lt = document.getElementById('lengthtubes').value;
+            var volt = Math.PI*dt*dt/4.0*lt;
+            var masst = volt*rho;
+            document.getElementById('volumetubes').value = volt;
+            document.getElementById('masstubes').value = masst;
+
+            var dtehx = document.getElementById('diametertubeseHX').value;
+            var ltehx = document.getElementById('lengthtubeseHX').value;
+            var voltehx = Math.PI*dtehx*dtehx/4.0*ltehx;
+            var masstehx = voltehx*rho;
+            document.getElementById('volumetubeseHX').value = voltehx;
+            document.getElementById('masstubeseHX').value = masstehx;
+
+            var dtchx = document.getElementById('diametertubescHX').value;
+            var ltchx = document.getElementById('lengthtubescHX').value;
+            var voltchx = Math.PI*dtchx*dtchx/4.0*ltchx;
+            var masstchx = voltchx*rho;
+            document.getElementById('volumetubescHX').value = voltchx;
+            document.getElementById('masstubescHX').value = masstchx;
+
+            var dtmltst = document.getElementById('lengthmlts').value;
+            var heightmltst = document.getElementById('heightmlts').value;
+            var widthmltst = document.getElementById('widthmlts').value;
+            var voltmltst = dtmltst*heightmltst*widthmltst;
+            var masstmltst = voltmltst*rho;
+            document.getElementById('volumemltst').value = voltmltst;
+            document.getElementById('massmltst').value = masstmltst;
+
+            var masspump = document.getElementById('masspumps').value;
+            var masstotaloutside = (masst + masstehx + masstchx + masstmltst);
+            masstotaloutside = masstotaloutside + masspump*1.0;
+            document.getElementById('masstotaloutside').value = masstotaloutside;
+            
+            var massinsidefinal = document.getElementById("masstotal").value;
+            var massoutsidefinal = document.getElementById('masstotaloutside').value;
+            var masstotalfinalfinal = (massinsidefinal*1 + massoutsidefinal*1);
+            document.getElementById("massutside").value = (Math.round(massoutsidefinal*100))/100;
+            document.getElementById("masstotafinal").value = (Math.round(masstotalfinalfinal*100))/100;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,271 @@
+body{
+    text-align:center;
+    margin:auto;
+    background: #EDF2F4;
+}
+.Inputdiv{
+    display:inline-block;
+    vertical-align: top;
+}
+.Outputdiv{
+    display:inline-block;
+}
+.Calculatediv{
+    background: #EDF2F4;
+}
+.inputoutside{
+    display:inline-block;
+    vertical-align:top;
+}
+.outputoutside{
+    display:inline-block;
+    vertical-align:top;
+}
+.TotalMass{
+    display:inline-block;
+}
+.massinside{
+    float:left;
+}
+.massoutside{
+    float:right;
+
+}
+.masstotalfinal{
+    float:left;
+}
+p{
+    width:300px;
+    color:black;
+    font-size:25px;
+    font-style:italic;
+    padding:10px;
+    margin:10px;
+    
+    margin:auto;
+    font-weight: bold;
+}
+p2{
+    width:300px;
+    color:black;
+    font-size:25px;
+    font-style:italic;
+    padding:10px;
+    margin:10px;
+    
+    margin:auto;
+    font-weight: bold;
+}
+p4{
+    font: 150% sans-serif;
+}
+p5{
+    font: 150% sans-serif;
+}
+h1{
+    margin:0px;
+    border:0px;
+    padding:30px;
+    text-align:center;
+    color:rgb(23, 72, 164);
+    font: bold 350% sans-serif;
+
+}
+h2{
+    padding:20px;
+    text-align:center;
+    margin:auto;
+    font: bold 250% sans-serif;
+    color:rgb(23, 72, 164);
+    
+}
+h3{
+    padding:20px;
+    text-align:center;
+    margin:auto;
+    font: bold 150% sans-serif;
+    color:rgb(23, 72, 164);
+    
+}
+h4{
+    padding:20px;
+    text-align:center;
+    margin:auto;
+    font: bold 150% sans-serif;
+    color:red;
+    
+}
+input[type=text]{
+    margin:10px;
+    padding:10px;
+    font-weight: bold;
+    font-size: 17px;
+    border:2px solid black;
+}
+input[type=button]{
+    margin:10px;
+    padding:10px;
+    display:block;
+    margin-left:auto;
+    margin-right:auto;
+    font-size:60px;
+    background:#ee6c4d;
+}
+lattext{
+    font-size:25px;
+    font-weight: bold;
+}
+form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    height: 45px; 
+    background-color: #f1f1f1;
+    width:250px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+select{
+    font-size:20px;
+}
+#volume{
+    margin:10px;
+    padding:10px;
+    background:rgb(203, 201, 201);    
+}
+#density{
+    margin:10px;
+    padding:10px;
+    background:rgb(203, 201, 201);
+}
+#mass{
+    margin:10px;
+    padding:10px;
+    background:rgb(203, 201, 201);
+}
+#volumebuffer{
+    margin:10px;
+    padding:10px;
+    background:rgb(203, 201, 201);
+}
+#volumetotal{
+    margin:10px;
+    padding:10px;
+    background:rgb(203, 201, 201);
+}
+#massbuffer{
+    margin:10px;
+    padding:10px;
+    background:rgb(203, 201, 201);
+}
+#masstotal{
+    margin:10px;
+    padding:10px;
+    background:rgb(203, 201, 201);
+}
+#volumefluid{
+    margin:10px;
+    padding:10px;
+    background:rgb(203, 201, 201);
+}
+#volumesolid{
+    margin:10px;
+    padding:10px;
+    background:rgb(203, 201, 201);
+}
+#volumefluidbed{
+    margin:10px;
+    padding:10px;
+    background:rgb(203, 201, 201);
+}
+#volumefluidsolid{
+    margin:10px;
+    padding:10px;
+    background:rgb(203, 201, 201);
+}
+#masssolid{
+    margin:10px;
+    padding:10px;
+    background:rgb(203, 201, 201);
+}
+
+#masstotaloutside{
+    margin:10px;
+    padding:10px;
+    background:rgb(203, 201, 201);
+}
+#volumetubes{
+    margin:10px;
+    padding:10px;
+    background:rgb(203, 201, 201);
+}
+#masstubes{
+    margin:10px;
+    padding:10px;
+    background:rgb(203, 201, 201);
+}
+#volumetubeseHX{
+    margin:10px;
+    padding:10px;
+    background:rgb(203, 201, 201);
+}
+#masstubeseHX{
+    margin:10px;
+    padding:10px;
+    background:rgb(203, 201, 201);
+}
+#volumetubescHX{
+    margin:10px;
+    padding:10px;
+    background:rgb(203, 201, 201);
+}
+#masstubescHX{
+    margin:10px;
+    padding:10px;
+    background:rgb(203, 201, 201);
+}
+#volumemltst{
+    margin:10px;
+    padding:10px;
+    background:rgb(203, 201, 201);
+}
+#massmltst{
+    margin:10px;
+    padding:10px;
+    background:rgb(203, 201, 201);
+}
+#massnside{
+    width:250px;
+    margin:10px;
+    padding:10px;
+    background:rgb(203, 201, 201);
+    font-size:25px;
+    text-align:center;
+}
+#massutside{
+    width:250px;
+    margin:10px;
+    padding:10px;
+    background:rgb(203, 201, 201);
+    font-size:25px;
+    text-align:center;
+}
+#masstotafinal{
+    width:300px;
+    margin:20px;
+    padding:20px;
+    background:rgb(203, 201, 201);
+    font-size:30px;
+    text-align:center;
+}
+.TCimage{
+    float:right;
+}
+.TCimageexp{
+    float:right;
+}
+.References{
+    font: 100% sans-serif;
+    display:inline-block;
+}
