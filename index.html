@@ -39,7 +39,7 @@
         <input type="text" name="initialtemp" id="initialtemp">
         <lattext>[ºC]</lattext>
         <p>Molten salt:</p>
-        <form action="#">
+        <form name="choosemolten" id="choosemolten" action="">
             <select name="moltensalt" id="moltensalt">
                 <option value="solarsalt">[1] Solar Salt</option>
                 <option value="hitecxl">[2] HitecXL</option>
@@ -51,6 +51,11 @@
         <div class="Calculatediv">
             <p2>&nbsp;</p2> 
             <input type="button" onclick="calculate()" value="Calculate">
+            <p2>&nbsp;</p2> 
+        </div>
+        <div class="Refdiv">
+            <p2>&nbsp;</p2> 
+            <input type="button" onclick="Ref()" value="Ref Case">
             <p2>&nbsp;</p2> 
         </div>
     </div>
@@ -143,6 +148,7 @@
                 <input type="button" onclick="calculate2()" value="Calculate">
                 <p2>&nbsp;</p2> 
             </div>
+            
         </div>
 
         <div class="outputoutside">
@@ -289,7 +295,7 @@
             </ul>
         </p3>
     </div>
-
+   
     <script>
         function calculate(){
             
@@ -374,6 +380,32 @@
             var masstotalfinalfinal = (massinsidefinal*1 + massoutsidefinal*1);
             document.getElementById("massutside").value = (Math.round(massoutsidefinal*100))/100;
             document.getElementById("masstotafinal").value = (Math.round(masstotalfinalfinal*100))/100;
+        }
+
+        function Ref(){
+            document.getElementById('diameter').value = 0.6;
+            document.getElementById('height').value = 1.0;
+            document.getElementById('heightbt').value = 0.3;
+            document.getElementById('heightbb').value = 0.3;
+            document.getElementById('voidf').value = 0.0703;
+            document.getElementById('porosity').value = 0.17;
+            document.getElementById('initialtemp').value = 180;
+            
+            document.getElementById("moltensalt").selectedIndex = 3;
+
+            document.getElementById("diametertubes").value = 0.1;
+            document.getElementById('lengthtubes').value = 2;
+            document.getElementById('diametertubeseHX').value = 0.05;
+            document.getElementById('lengthtubeseHX').value = 10;
+            document.getElementById('diametertubescHX').value = 0.05;
+            document.getElementById('lengthtubescHX').value = 10;
+            document.getElementById('lengthmlts').value = 0.3;
+            document.getElementById('heightmlts').value = 0.3;
+            document.getElementById('widthmlts').value = 0.3;
+            document.getElementById('masspumps').value = 0.0;
+
+            calculate();
+            calculate2();
         }
     </script>
 </body>
